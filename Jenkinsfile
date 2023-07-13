@@ -3,32 +3,35 @@ pipeline
     agent any
     stages 
     {
-        stage('Print location and files')
+        stage('Build')
         {
         	steps 
             {
             	sh "pwd"
-              sh "ls -la"
+                sh "ls -la"
             }
         }
-        stage('Make new script file')
+        stage('Launch')
         {
             steps 
             {
 		sh 'touch coolScript.bash'
-            }
-
-        }
-        stage('script writing')
-        {
-            steps
-            {
-            	sh 'version=1'
+	        sh 'version=1'
                 sh 'echo "echo Cheers all" > coolScript.bash'
             }
 
         }
-        stage('Running script')
+
+        stage('Test')
+        {
+            steps{
+              sh 'echo Running script'
+	      sh 'chmod +x coolScript.bash'
+	      sh './coolScript.bash'
+	      sh 'readlink -f coolScript.bash'
+            }
+        }
+	 stage('Deploy')
         {
             steps{
               sh 'echo Running script'

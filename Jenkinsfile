@@ -15,8 +15,7 @@ pipeline
         {
             steps 
             {
-            	sh 'rm coolScript.bash'
-				      sh 'touch coolScript.bash'
+		sh 'touch coolScript.bash'
             }
 
         }

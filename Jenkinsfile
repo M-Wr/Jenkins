@@ -32,7 +32,7 @@ pipeline
         {
             steps{
               sh 'echo Running script'
-	      sh 'chmod coolScript.bash'
+	      sh 'chmod +x coolScript.bash'
 	      sh './coolScript.bash'
 	      sh 'readlink -f coolScript.bash'
             }

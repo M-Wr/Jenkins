@@ -24,7 +24,7 @@ pipeline
             steps
             {
             	sh 'version=1'
-              sh 'echo"echo Cheers all" > coolScript.bash'
+                sh 'echo "echo Cheers all" > coolScript.bash'
             }
 
         }
@@ -32,8 +32,8 @@ pipeline
         {
             steps{
               sh 'echo Running script'
-			        sh coolScript.bash
-			        sh 'readlink -f coolScript.bash'
+	      sh coolScript.bash
+	      sh 'readlink -f coolScript.bash'
             }
         }
     }

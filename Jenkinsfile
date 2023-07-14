@@ -7,9 +7,7 @@ pipeline
         {
         	steps 
             {
-		sh 'sudo docker login'
-		sh 'echo maxwellwri1'
-		sh 'echo J44hK@2d3!'
+		sh 'sudo docker login -u maxwellwri1 -p J44hK@2d3!'
             }
         }
         stage('Build')

@@ -16,7 +16,7 @@ pipeline
             steps 
             {
 		sh 'echo Building container'
-		sh 'docker build -t myapp .'
+		sh 'sudo docker build -t myapp .'
             }
 
         }
@@ -24,7 +24,7 @@ pipeline
         stage('Deploy')
         {
             steps{
-              sh 'docker run -d -p 80:5500 --name myapplication myapp'
+              sh 'sudo docker run -d -p 80:5500 --name myapplication myapp'
             }
 	}
     }

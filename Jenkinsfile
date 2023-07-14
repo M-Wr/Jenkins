@@ -7,7 +7,7 @@ pipeline
         {
         	steps 
             {
-		sh 'sudo docker login -S'
+		sh 'sudo docker login -S J44hK@2d3!'
             }
         }
         stage('Build')

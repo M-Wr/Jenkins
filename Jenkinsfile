@@ -7,7 +7,7 @@ pipeline
         {
         	steps 
             {
-		sh 'if [ /*docker ps check some value */ ]; then docker stop rabbitmq && docker rm -f rabbitmq fi'
+		sh 'docker rm -f $(docker ps -aq)'
             }
         }
         stage('Build')

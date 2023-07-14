@@ -3,13 +3,13 @@ pipeline
     agent any
     stages 
     {
-        stage('Clean up')
-        {
-        	steps 
-            {
-		sh 'sudo docker login -S J44hK@2d3!'
-            }
-        }
+        // stage('Clean up')
+        // {
+        // 	steps 
+        //     {
+		
+        //     }
+        // }
         stage('Build')
         {
             steps 

@@ -23,7 +23,7 @@ pipeline
         stage('Deploy')
         {
             steps{
-              sh 'sudo docker run -d -p 80:5500 --name myapplication myapp'
+              sh 'docker run -d -p 80:5500 --name myapplication myapp'
             }
 	}
     }

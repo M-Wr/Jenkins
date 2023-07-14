@@ -15,7 +15,7 @@ pipeline
             steps 
             {
 		sh 'echo Building container'
-		sh 'sudo docker build -t myapp . -S'
+		sh 'docker build -t myapp . -S'
             }
 
         }

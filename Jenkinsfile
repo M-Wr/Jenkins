@@ -3,42 +3,28 @@ pipeline
     agent any
     stages 
     {
-        stage('Build')
+        stage('Clean up')
         {
         	steps 
             {
-            	sh "pwd"
-                sh "ls -la"
+		docker rm -f $(docker ps -aq) || true
             }
         }
-        stage('Launch')
+        stage('Build')
         {
             steps 
             {
-		sh 'touch coolScript.bash'
-	        sh 'version=1'
-                sh 'echo "echo Cheers all" > coolScript.bash'
+		sh 'echo Building container'
+		sh 'docker build -t myapp .'
             }
 
         }
 
-        stage('Test')
+        stage('Deploy')
         {
             steps{
-              sh 'echo Running script'
-	      sh 'chmod +x coolScript.bash'
-	      sh './coolScript.bash'
-	      sh 'readlink -f coolScript.bash'
+              sh 'docker run -d -p 80:5500 --name myapplication myapp'
             }
-        }
-	 stage('Deploy')
-        {
-            steps{
-              sh 'echo Running script'
-	      sh 'chmod +x coolScript.bash'
-	      sh './coolScript.bash'
-	      sh 'readlink -f coolScript.bash'
-            }
-        }
+	}
     }
 }

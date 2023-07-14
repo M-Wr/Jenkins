@@ -3,14 +3,15 @@ pipeline
     agent any
     stages 
     {
-  //       stage('Clean up')
-  //       {
-  //       	steps 
-  //           {
-		// sh 'echo removing container'
-		// sh 'sudo docker rm -f $(docker ps -aq)' || true
-  //           }
-  //       }
+        stage('Clean up')
+        {
+        	steps 
+            {
+		sh 'sudo docker login'
+		sh 'echo maxwellwri1'
+		sh 'echo J44hK@2d3!'
+            }
+        }
         stage('Build')
         {
             steps 

@@ -8,7 +8,7 @@ pipeline
         	steps 
             {
 		sh 'echo removing container'
-		sh 'docker rm -f $(docker ps -aq)' || true
+		sh 'sudo docker rm -f $(docker ps -aq)' || true
             }
         }
         stage('Build')
